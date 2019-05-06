@@ -1,6 +1,6 @@
 <?php
 
-namespace Dynamic\Products\Test;
+namespace Dynamic\Products\Test\Page;
 
 use Dynamic\Products\Page\ProductFileCollection;
 use SilverStripe\Dev\SapphireTest;
