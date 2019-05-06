@@ -1,0 +1,8 @@
+en:
+  Dynamic\Products\Page\Product:
+    DESCRIPTION: "A Product page"
+    PLURALNAME: 'Products'
+    PLURALS:
+      one: 'A Product'
+      other: '{count} Products'
+    SINGULARNAME: 'Product'
