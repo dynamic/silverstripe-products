@@ -2,11 +2,6 @@
 
 namespace Dynamic\ProductCatalog\Admin;
 
-use Dynamic\ProductCatalog\Docs\CareCleaningDoc;
-use Dynamic\ProductCatalog\Docs\OperationManual;
-use Dynamic\ProductCatalog\Docs\SpecSheet;
-use Dynamic\ProductCatalog\Docs\Warranty;
-use Dynamic\ProductCatalog\ORM\CatalogProduct;
 use Dynamic\Products\Model\Brochure;
 use SilverStripe\Admin\ModelAdmin;
 

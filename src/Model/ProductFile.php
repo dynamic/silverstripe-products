@@ -28,6 +28,14 @@ class ProductFile extends DataObject
     );
 
     /**
+     * @var array
+     */
+    private static $owns = [
+        'Image',
+        'Download',
+    ];
+
+    /**
      * @var string
      */
     private static $table_name = 'ProductFile';
@@ -58,10 +66,6 @@ class ProductFile extends DataObject
     {
         $fields = parent::getCMSFields();
 
-        $fields->removeByName([
-            'Products',
-        ]);
-
         $file = UploadField::create('Download')
             ->setFolderName('Uploads/ProductFiles/File')
             //->setAllowedFileCategories('doc')
@@ -70,7 +74,7 @@ class ProductFile extends DataObject
         $fields->addFieldsToTab('Root.Main', array(
             $file,
             TextField::create('FileLink')
-                ->setDescription('URL of external file. will display on page if no Download is specified above.')
+                ->setDescription('URL of external file. will display on page if no download is specified above.')
                 ->setAttribute('placeholder', 'http://'),
             ),
             'Content'

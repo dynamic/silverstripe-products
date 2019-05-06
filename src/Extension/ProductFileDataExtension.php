@@ -80,7 +80,6 @@ class ProductFileDataExtension extends DataExtension
         $fields->removeByName(array(
             'Link',
             'SortOrder',
-            'Products',
         ));
 
         $classes = ClassInfo::subclassesFor(ProductFile::class);
