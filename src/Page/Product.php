@@ -3,8 +3,15 @@
 namespace Dynamic\Products\Page;
 
 use Bummzack\SortableFile\Forms\SortableUploadField;
+use Dynamic\Products\Model\Brochure;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use SilverStripe\Forms\TextField;
+use Symbiote\GridFieldExtensions\GridFieldAddExistingSearchButton;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class Product extends \Page
 {
@@ -25,6 +32,7 @@ class Product extends \Page
      */
     private static $many_many = [
         'Images' => Image::class,
+        'Brochures' => Brochure::class,
     ];
 
     /**
@@ -32,6 +40,9 @@ class Product extends \Page
      */
     private static $many_many_extraFields = [
         'Images' => [
+            'SortOrder' => 'Int',
+        ],
+        'Brochures' => [
             'SortOrder' => 'Int',
         ],
     ];
@@ -49,6 +60,11 @@ class Product extends \Page
     public function getCMSFields()
     {
         $this->beforeUpdateCMSFields(function (FieldList $fields) {
+            $fields->insertBefore(
+                'Content',
+                TextField::create('Code', 'Product code')
+            );
+
             // Images tab
             $images = SortableUploadField::create('Images')
                 ->setSortColumn('SortOrder')
@@ -59,6 +75,28 @@ class Product extends \Page
             $fields->addFieldsToTab('Root.Images', [
                 $images,
             ]);
+
+            if ($this->ID) {
+                // Brochures
+                $config = GridFieldConfig_RecordEditor::create();
+                $config->addComponents([
+                    new GridFieldOrderableRows('SortOrder'),
+                    new GridFieldAddExistingSearchButton()
+                ])
+                    ->removeComponentsByType([
+                        GridFieldAddExistingAutocompleter::class
+                    ]);
+
+                $brochures = GridField::create(
+                    'Brochures',
+                    'Brochures',
+                    $this->Brochures()->sort('SortOrder'),
+                    $config
+                );
+                $fields->addFieldsToTab('Root.Files.Brochures', array(
+                    $brochures,
+                ));
+            }
         });
 
         return parent::getCMSFields();
