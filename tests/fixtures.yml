@@ -1,0 +1,40 @@
+SilverStripe\Security\Group:
+  administrators:
+    Title: Administrators
+  content_authors:
+    Title: "Content Authors"
+
+SilverStripe\Security\Permission:
+  administrators:
+    Code: ADMIN
+    Type: 1
+    Group: =>SilverStripe\Security\Group.administrators
+
+SilverStripe\Security\Member:
+  admin:
+    FirstName: Default
+    Surname: Admin
+    Email: administrator
+    Groups: =>SilverStripe\Security\Group.administrators
+  author:
+    FirstName: "Content"
+    Surname: "Author"
+    Email: "content"
+    Groups: =>SilverStripe\Security\Group.content_authors
+  default:
+    FirstName: Default
+    Surname: Member
+    Email: member
+
+Dynamic\Products\Model\Brochure:
+  one:
+    Title: 'Test Brochure'
+
+Dynamic\Products\Page\ProductCategory:
+  default:
+    Title: 'Default Category'
+
+Dynamic\Products\Page\Product:
+  one:
+    Title: 'Product One'
+    Brochures: =>Dynamic\Products\Model\Brochure.one

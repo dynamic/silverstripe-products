@@ -1,3 +1,7 @@
 ---
 name: silverstripe-products-config
 ---
+Dynamic\Products\Model\Brochure:
+  extensions:
+    - Dynamic\Products\Extension\ProductFileDataExtension
+
