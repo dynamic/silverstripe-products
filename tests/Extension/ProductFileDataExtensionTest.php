@@ -1,13 +1,13 @@
 <?php
 
-namespace Dynamic\ProductCatalog\Test;
+namespace Dynamic\Products\Test;
 
 use Dynamic\Products\Model\Brochure;
 use Dynamic\Products\Model\ProductDoc;
 use SilverStripe\Dev\SapphireTest;
 use SilverStripe\Forms\FieldList;
 
-class ProductDocDataExtensionTest extends SapphireTest
+class ProductFileDataExtensionTest extends SapphireTest
 {
     /**
      * @var string

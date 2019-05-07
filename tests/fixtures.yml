@@ -38,3 +38,8 @@ Dynamic\Products\Page\Product:
   one:
     Title: 'Product One'
     Brochures: =>Dynamic\Products\Model\Brochure.one
+
+Dynamic\Products\Page\ProductFileCollection:
+  default:
+    Title: 'Brochures'
+    ManagedClass: 'Dynamic\Products\Model\Brochure'

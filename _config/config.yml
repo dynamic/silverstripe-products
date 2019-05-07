@@ -5,3 +5,7 @@ Dynamic\Products\Model\Brochure:
   extensions:
     - Dynamic\Products\Extension\ProductFileDataExtension
 
+Dynamic\Products\Page\ProductFileCollectionController:
+  extensions:
+    - Dynamic\Collection\CollectionExtension
+    - Dynamic\Products\Extension\ProductFileCollectionDataExtension
