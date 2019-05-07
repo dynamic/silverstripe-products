@@ -1,88 +1,51 @@
-# SilverStripe supported module skeleton
+# SilverStripe Products
 
-A useful skeleton to more easily create modules that conform to the
-[Module Standard](https://docs.silverstripe.org/en/developer_guides/extending/modules/#module-standard).
+A module to display a product catalog in your website. 
 
-This readme contains descriptions of the parts of this module base you should customise to meet you own module needs.
-For example, the module name in the H1 above should be you own module name, and the description text you are reading now
-is where you should provide a good short explanation of what your module does.
+Products are created as pages in your website, and can be organized by Product Categories. Product files, such as the included Brochures, can be attached to products. With the Product File Collection page, you can display a filterable list of all brochures across the system.
 
-Where possible we have included default text that can be included as is into your module and indicated in 
-other places where you need to customise it
-
-Below is a template of the sections of your readme.md you should ideally include to met the Module Standard 
-and help others make use of your modules.
-
-### Steps to prepare this module for your own use:
-
-- Add your name/organisation to `LICENSE.md`
-- Update this readme with information about your module. Ensure sections that aren't relevant are deleted and 
-placeholders are edited where relevant
-- Review the README files in the various provided directories. You should replace these with `.gitkeep` or delete the 
-directories
-- Update `composer.json` with your requirements and package name
-- Update (or remove) `package.json` with your requirements and package name. Run `yarn` (or remove `yarn.lock`) to 
-ensure dependencies resolve correctly
-- Clear the git history by running `rm -rf .git && git init`
-- Add and push to a new remote!
+Instructions to create custom product files are included below.
 
 ## Requirements
 
 * SilverStripe ^4.0
-* [Yarn](https://yarnpkg.com/lang/en/), [NodeJS](https://nodejs.org/en/) (6.x) and [npm](https://npmjs.com) (for building
-  frontend assets)
-* Other module
-* Other server requirement
-* Etc
+* dynamic/silverstripe-collection ^2.0
+* symbiote/silverstripe-gridfieldextensions ^3.0
+* bummzack/sortablefile ^2.0
 
 ## Installation
-Add some installation instructions here, having a 1 line composer copy and paste is useful. 
-Here is a composer command to create a new module project. Ensure you read the
-['publishing a module'](https://docs.silverstripe.org/en/developer_guides/extending/how_tos/publish_a_module/) guide
-and update your module's composer.json to designate your code as a SilverStripe module. 
 
 ```
-composer require silverstripe-module/skeleton 4.x-dev
+composer require dynamic/silverstripe-products
 ```
 
-**Note:** When you have completed your module, submit it to Packagist or add it as a VCS repository to your
-project's composer.json, pointing to the private repository URL.
+## Custom Product Files
+
+SilverStripe Products includes a Brochure object, which is an example of a Product File that can be assigned to products. You can create additional product file types per the following example:
+
+```
+use Dynamic\Products\Extension\ProductFileDataExtension;
+
+class SpecSheet extends ProductFile
+{
+	private static $table_name = 'SpecSheet';
+	
+	private static $extensions = [ProductFileDataExtension::class];
+}
+```
+
+Then, create a DataExtension and apply it to `Product`. Include the relation to the new product file:
+
+```
+private static $many_many = [SpecSheet::class];
+```
 
 ## License
+
 See [License](license.md)
 
-We have included a 3-clause BSD license you can use as a default. We advocate for the BSD license as 
-it is one of the most permissive and open licenses.
-
-Feel free to alter the [license.md](license.md) to suit if you wan to use an alternative license.
-You can use [choosealicense.com](http://choosealicense.com) to help pick a suitable license for your project.
-
-## Documentation
- * [Documentation readme](docs/en/readme.md)
-
-Add links into your docs/<language> folder here unless your module only requires minimal documentation 
-in that case, add here and remove the docs folder. You might use this as a quick table of content if you
-mhave multiple documentation pages.
-
-## Example configuration (optional)
-If your module makes use of the config API in SilverStripe it's a good idea to provide an example config
- here that will get the module working out of the box and expose the user to the possible configuration options.
-
-Provide a yaml code example where possible.
-
-```yaml
-
-Page:
-  config_option: true
-  another_config:
-    - item1
-    - item2
-  
-```
-
 ## Maintainers
- * Person here <person@emailaddress.com>
- * Another maintainer <maintain@emailaddress.com>
+ * Dynamic <dev@dynamicagency.com>
  
 ## Bugtracker
 Bugs are tracked in the issues section of this repository. Before submitting an issue please read over 
