@@ -14,9 +14,9 @@
     $CollectionSearchForm
     <div class="clearfix"></div>
 
-    <% if $ProductList %>
+    <% if $Children %>
         <div class="product-list row">
-            <% loop $ProductList %>
+            <% loop $Children %>
                 <% include ProductSummary %>
                 <% if $MultipleOf(4,1) %><div class="clearfix"></div><% end_if %>
             <% end_loop %>
