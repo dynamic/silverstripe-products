@@ -125,15 +125,7 @@ class Product extends \Page
     /**
      * @return mixed
      */
-    public function Image()
-    {
-        return $this->getImage();
-    }
-
-    /**
-     * @return mixed
-     */
-    public function Thumbnail()
+    public function getThumbnail()
     {
         if ($image = $this->getImage()) {
             if ($thumb = Image::get()->byID($image->ID)) {
