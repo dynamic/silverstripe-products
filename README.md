@@ -37,7 +37,15 @@ class SpecSheet extends ProductFile
 Then, create a DataExtension and apply it to `Product`. Include the relation to the new product file:
 
 ```
-private static $many_many = [SpecSheet::class];
+private static $many_many = [
+	'SpecSheets' => SpecSheet::class,
+];
+
+private static $many_many_extraFields = [
+	'SpecSheets' => [
+		'SortOrder' => 'Int',
+	]
+];
 ```
 
 ## License
