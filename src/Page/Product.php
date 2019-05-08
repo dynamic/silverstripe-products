@@ -24,7 +24,7 @@ class Product extends \Page
      * @var array
      */
     private static $db = [
-        'Code' => 'Varchar(100)',
+        'SKU' => 'Varchar(100)',
     ];
 
     /**
@@ -67,7 +67,7 @@ class Product extends \Page
         $this->beforeUpdateCMSFields(function (FieldList $fields) {
             $fields->insertBefore(
                 'Content',
-                TextField::create('Code', 'Product code')
+                TextField::create('SKU', 'Product SKU')
             );
 
             // Images tab
