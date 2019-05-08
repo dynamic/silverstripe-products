@@ -55,6 +55,11 @@ class Product extends \Page
     ];
 
     /**
+     * @var array 
+     */
+    private static $allowed_children = [];
+
+    /**
      * @return \SilverStripe\Forms\FieldList
      */
     public function getCMSFields()

@@ -14,14 +14,14 @@
     $CollectionSearchForm
     <div class="clearfix"></div>
 
-    <% if $Children %>
+    <% if $PaginatedList %>
         <div class="product-list row">
-            <% loop $Children %>
+            <% loop $PaginatedList %>
                 <% include ProductSummary %>
                 <% if $MultipleOf(4,1) %><div class="clearfix"></div><% end_if %>
             <% end_loop %>
         </div>
-        <% with $ProductList %>
+        <% with $PaginatedList %>
             <% include Pagination %>
         <% end_with %>
     <% else %>
