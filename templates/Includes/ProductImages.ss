@@ -1,12 +1,10 @@
-<% if $SlideShow %>
+<% if $Images %>
     <div class="flexslider detail">
         <ul class="slides" role="flexslider">
-            <% loop $SlideShow %>
-            <% if $Image %>
+            <% loop $Images %>
             <li role="slide">
-                <img src="$Image.URL" alt="<% if $Headline %>$Headline<% end_if %>">
+                <img src="$URL" alt="<% if $Title %>$Title<% end_if %>">
             </li>
-            <% end_if %>
             <% end_loop %>
         </ul>
     </div>
