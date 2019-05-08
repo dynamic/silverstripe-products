@@ -55,7 +55,7 @@ class Product extends \Page
     ];
 
     /**
-     * @var array 
+     * @var array
      */
     private static $allowed_children = [];
 

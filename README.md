@@ -19,7 +19,23 @@ Instructions to create custom product files are included below.
 composer require dynamic/silverstripe-products
 ```
 
-## Custom Product Files
+## Usage
+
+### Related Products
+
+If you'd like to add the ability to include related products on a product page, you can apply the `RelatedProductsDataExtension` to `Product`.
+
+In `config.yml`:
+
+```
+Dynamic\Products\Page\Product:
+  extensions:
+    - Dynamic\Products\Extension\RelatedProductsDataExtension
+```
+
+Related products can be added to any page type on your website, such as a `BlogPost`.
+
+### Custom Product Files
 
 SilverStripe Products includes a Brochure object, which is an example of a Product File that can be assigned to products. You can create additional product file types per the following example:
 
