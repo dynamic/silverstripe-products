@@ -48,7 +48,7 @@ class ProductFileDataExtensionTest extends SapphireTest
     public function testLink()
     {
         $object = $this->objFromFixture(Brochure::class, 'one');
-        $this->assertEquals($object->Link(), $object->Download()->URL);
+        $this->assertEquals($object->getLink(), $object->Download()->URL);
     }
 
     /**

@@ -71,12 +71,14 @@ class ProductFile extends DataObject
             //->setAllowedFileCategories('doc')
         ;
 
-        $fields->addFieldsToTab('Root.Main', array(
-            $file,
-            TextField::create('FileLink')
-                ->setDescription('URL of external file. will display on page if no download is specified above.')
-                ->setAttribute('placeholder', 'http://'),
-            ),
+        $fields->addFieldsToTab(
+            'Root.Main',
+            [
+                $file,
+                TextField::create('FileLink')
+                    ->setDescription('URL of external file. Will display on page if no file is specified.')
+                    ->setAttribute('placeholder', 'http://'),
+            ],
             'Content'
         );
 

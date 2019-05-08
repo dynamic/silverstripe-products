@@ -118,7 +118,7 @@ class ProductFileDataExtension extends DataExtension
      *
      * @return mixed
      */
-    public function Link()
+    public function getLink()
     {
         return $this->owner->Download()->URL;
     }
