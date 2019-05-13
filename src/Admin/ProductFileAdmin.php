@@ -1,6 +1,6 @@
 <?php
 
-namespace Dynamic\ProductCatalog\Admin;
+namespace Dynamic\Products\Admin;
 
 use Dynamic\Products\Model\Brochure;
 use SilverStripe\Admin\ModelAdmin;
