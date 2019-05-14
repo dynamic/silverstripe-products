@@ -114,9 +114,7 @@ class Product extends \Page
     {
         if ($this->Images()->exists()) {
             $image = $this->Images()->first();
-            if ($image->ImageID > 0) {
-                return $image->Image();
-            }
+            return $image;
         }
 
         return false;
