@@ -9,3 +9,9 @@ Dynamic\Products\Page\ProductFileCollectionController:
   extensions:
     - Dynamic\Collection\CollectionExtension
     - Dynamic\Products\Extension\ProductFileCollectionDataExtension
+
+Product_Images:
+  default_sort: 'SortOrder'
+
+Product_Brochures:
+  default_sort: 'SortOrder'
