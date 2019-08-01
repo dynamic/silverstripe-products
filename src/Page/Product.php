@@ -113,7 +113,7 @@ class Product extends \Page
     public function getImage()
     {
         if ($this->Images()->exists()) {
-            $image = $this->Images()->first();
+            $image = $this->Images()->sort('SortOrder')->first();
             return $image;
         }
 
