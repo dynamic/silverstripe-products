@@ -67,8 +67,10 @@ class ProductFile extends DataObject
         $fields = parent::getCMSFields();
 
         $file = UploadField::create('Download')
+            ->setAllowedMaxFileNumber(1)
             ->setFolderName('Uploads/ProductFiles/File')
-            //->setAllowedFileCategories('doc')
+            ->setAllowedFileCategories('document')
+            ->setDescription('Product file for download')
         ;
 
         $fields->addFieldsToTab(
@@ -84,7 +86,9 @@ class ProductFile extends DataObject
 
         $fields->insertBefore(
             UploadField::create('Image')
-                //->setFolderName('Uploads/ProductDocs/Images')
+                ->setAllowedMaxFileNumber(1)
+                ->setFolderName('Uploads/ProductDocs/Images')
+                ->setAllowedFileCategories('image')
                 ->setDescription('Optional preview image of file'),
             'Content'
         );
