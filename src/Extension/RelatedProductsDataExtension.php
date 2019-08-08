@@ -22,7 +22,7 @@ class RelatedProductsDataExtension extends DataExtension
     private static $many_many = [
         'RelatedProducts' => Product::class,
     ];
-    
+
     /**
      * @var array
      */
@@ -60,5 +60,13 @@ class RelatedProductsDataExtension extends DataExtension
 
             $addnew->setSearchList(Product::get()->exclude('ID', $this->owner->ID));
         }
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRelatedProductsList()
+    {
+        return $this->owner->RelatedProducts()->sort('SortOrder');
     }
 }
