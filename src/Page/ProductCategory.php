@@ -63,7 +63,7 @@ class ProductCategory extends \Page
                 'ParentID' => $categories,
             ]);
 
-        $this->extend('updateProductList', $products);
+        $this->extend('updateProductList', $products, $categories);
 
         return $products;
     }
