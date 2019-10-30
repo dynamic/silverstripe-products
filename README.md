@@ -2,6 +2,18 @@
 
 A module to display a product catalog in your website. 
 
+[![Build Status](https://travis-ci.org/dynamic/silverstripe-products.svg?branch=master)](https://travis-ci.org/dynamic/silverstripe-products)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dynamic/silverstripe-products/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dynamic/silverstripe-products/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/dynamic/silverstripe-products/badges/build.png?b=master)](https://scrutinizer-ci.com/g/dynamic/silverstripe-products/build-status/master)
+[![codecov](https://codecov.io/gh/dynamic/silverstripe-products/branch/master/graph/badge.svg)](https://codecov.io/gh/dynamic/silverstripe-products)
+
+[![Latest Stable Version](https://poser.pugx.org/dynamic/silverstripe-products/v/stable)](https://packagist.org/packages/dynamic/silverstripe-products)
+[![Total Downloads](https://poser.pugx.org/dynamic/silverstripe-products/downloads)](https://packagist.org/packages/dynamic/silverstripe-products)
+[![Latest Unstable Version](https://poser.pugx.org/dynamic/silverstripe-products/v/unstable)](https://packagist.org/packages/dynamic/silverstripe-products)
+[![License](https://poser.pugx.org/dynamic/silverstripe-products/license)](https://packagist.org/packages/dynamic/silverstripe-products)
+
+## Overview
+
 Products are created as pages in your website, and can be organized by Product Categories. Product files, such as the included Brochures, can be attached to products. With the Product File Collection page, you can display a filterable list of all brochures across the system.
 
 Instructions to create custom product files are included below.
