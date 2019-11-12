@@ -32,6 +32,8 @@ class ProductCategory extends \Page
     private static $allowed_children = [
         ProductCategory::class,
         Product::class,
+        RedirectorPage::class,
+        VirtualPage::class,
     ];
 
     /**
