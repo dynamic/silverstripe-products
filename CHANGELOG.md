@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.1](https://github.com/dynamic/silverstripe-products/tree/1.0.1) (2019-11-11)
+
+[Full Changelog](https://github.com/dynamic/silverstripe-products/compare/1.0.0...1.0.1)
+
+**Implemented enhancements:**
+
+- FEATURE add VirtualPage, RedirectoPage to allowed\_children of ProductCategory [\#23](https://github.com/dynamic/silverstripe-products/issues/23)
+
+**Merged pull requests:**
+
+- FEATURE ProductCategory - allow Virtual and Redirect pages as children [\#24](https://github.com/dynamic/silverstripe-products/pull/24) ([jsirish](https://github.com/jsirish))
+
 ## [1.0.0](https://github.com/dynamic/silverstripe-products/tree/1.0.0) (2019-10-30)
 
 [Full Changelog](https://github.com/dynamic/silverstripe-products/compare/a5895a9d58b0cc52f8d77c7467192d7e6b5700b0...1.0.0)
