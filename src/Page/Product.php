@@ -4,6 +4,7 @@ namespace Dynamic\Products\Page;
 
 use Bummzack\SortableFile\Forms\SortableUploadField;
 use Dynamic\Products\Model\Brochure;
+use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridField;
@@ -31,7 +32,7 @@ class Product extends \Page
      * @var array
      */
     private static $many_many = [
-        'Images' => Image::class,
+        'Images' => File::class,
         'Brochures' => Brochure::class,
     ];
 
@@ -55,6 +56,23 @@ class Product extends \Page
     ];
 
     /**
+     * The relation name was established before requests for videos.
+     * The relation has subsequently been updated from Image::class to File::class
+     * to allow for additional file types such as mp4
+     *
+     * @var array
+     */
+    private static $allowed_images_extensions = [
+        'gif',
+        'jpeg',
+        'jpg',
+        'png',
+        'bmp',
+        'ico',
+        'mp4',
+    ];
+
+    /**
      * @var array
      */
     private static $allowed_children = [];
@@ -74,7 +92,7 @@ class Product extends \Page
             $images = SortableUploadField::create('Images')
                 ->setSortColumn('SortOrder')
                 ->setIsMultiUpload(true)
-                ->setAllowedFileCategories('image')
+                ->setAllowedExtensions($this->config()->get('allowed_images_extensions'))
                 ->setFolderName('Uploads/Products/Images');
 
             $fields->addFieldsToTab('Root.Images', [
@@ -86,10 +104,10 @@ class Product extends \Page
                 $config = GridFieldConfig_RecordEditor::create();
                 $config->addComponents([
                     new GridFieldOrderableRows('SortOrder'),
-                    new GridFieldAddExistingSearchButton()
+                    new GridFieldAddExistingSearchButton(),
                 ])
                     ->removeComponentsByType([
-                        GridFieldAddExistingAutocompleter::class
+                        GridFieldAddExistingAutocompleter::class,
                     ]);
 
                 $brochures = GridField::create(
@@ -98,9 +116,9 @@ class Product extends \Page
                     $this->Brochures()->sort('SortOrder'),
                     $config
                 );
-                $fields->addFieldsToTab('Root.Files.Brochures', array(
+                $fields->addFieldsToTab('Root.Files.Brochures', [
                     $brochures,
-                ));
+                ]);
             }
         });
 
