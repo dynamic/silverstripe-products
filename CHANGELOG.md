@@ -1,6 +1,14 @@
 # Changelog
 
-## [1.0.1](https://github.com/dynamic/silverstripe-products/tree/1.0.1) (2019-11-11)
+## [1.1.0](https://github.com/dynamic/silverstripe-products/tree/1.1.0) (2019-12-11)
+
+[Full Changelog](https://github.com/dynamic/silverstripe-products/compare/1.0.1...1.1.0)
+
+**Implemented enhancements:**
+
+- ENHANCEMENT allow for videos in the product "Images" [\#25](https://github.com/dynamic/silverstripe-products/issues/25)
+
+## [1.0.1](https://github.com/dynamic/silverstripe-products/tree/1.0.1) (2019-11-12)
 
 [Full Changelog](https://github.com/dynamic/silverstripe-products/compare/1.0.0...1.0.1)
 
