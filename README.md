@@ -33,6 +33,12 @@ composer require dynamic/silverstripe-products
 
 ## Usage
 
+### Upgrading to 1.1.0
+
+Upgrading from 1.0.x to 1.1.0 will require running the following task as the Product's image upload now supports `mp4` video files for upload.
+
+`sake dev/tasks/product-image-relation-update-task`
+
 ### Related Products
 
 If you'd like to add the ability to include related products on a product page, you can apply the `RelatedProductsDataExtension` to `Product`.
