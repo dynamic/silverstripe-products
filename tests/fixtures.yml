@@ -35,6 +35,7 @@ Dynamic\Products\Page\ProductCategory:
     Title: 'Default Category'
   restricted:
     Title: 'Restricted Children'
+    CanViewType: 'Inherit'
 
 Dynamic\Products\Page\Product:
   one:
@@ -48,6 +49,7 @@ Dynamic\Products\Page\Product:
   nonrestrictedproduct:
     Title: 'Non Restricted Product'
     Parent: =>Dynamic\Products\Page\ProductCategory.restricted
+    CanViewType: 'Inherit'
 
 
 Dynamic\Products\Page\ProductFileCollection:
