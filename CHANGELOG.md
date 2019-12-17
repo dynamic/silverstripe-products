@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.1](https://github.com/dynamic/silverstripe-products/tree/1.1.1) (2019-12-17)
+
+[Full Changelog](https://github.com/dynamic/silverstripe-products/compare/1.1.0...1.1.1)
+
+**Fixed bugs:**
+
+- CRITICAL BUG ProductCategory::getProductList\(\) doesn't check permissions [\#27](https://github.com/dynamic/silverstripe-products/issues/27)
+
+**Merged pull requests:**
+
+- BUGFIX check permissions before returning product list [\#28](https://github.com/dynamic/silverstripe-products/pull/28) ([muskie9](https://github.com/muskie9))
+
 ## [1.1.0](https://github.com/dynamic/silverstripe-products/tree/1.1.0) (2019-12-11)
 
 [Full Changelog](https://github.com/dynamic/silverstripe-products/compare/1.0.1...1.1.0)
@@ -7,6 +19,10 @@
 **Implemented enhancements:**
 
 - ENHANCEMENT allow for videos in the product "Images" [\#25](https://github.com/dynamic/silverstripe-products/issues/25)
+
+**Merged pull requests:**
+
+- ENHANCEMENT allow for Videos in product Images zone [\#26](https://github.com/dynamic/silverstripe-products/pull/26) ([muskie9](https://github.com/muskie9))
 
 ## [1.0.1](https://github.com/dynamic/silverstripe-products/tree/1.0.1) (2019-11-12)
 
