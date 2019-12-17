@@ -66,8 +66,6 @@ class ProductCategory extends \Page
                 'ParentID' => $categories,
             ]);
 
-        $count = $products->count();
-
         $this->extend('updateProductList', $products, $categories);
 
         $products = $products->filterByCallback(function ($page) {
