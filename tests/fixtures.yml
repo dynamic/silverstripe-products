@@ -33,11 +33,24 @@ Dynamic\Products\Model\Brochure:
 Dynamic\Products\Page\ProductCategory:
   default:
     Title: 'Default Category'
+  restricted:
+    Title: 'Restricted Children'
+    CanViewType: 'Inherit'
 
 Dynamic\Products\Page\Product:
   one:
     Title: 'Product One'
     Brochures: =>Dynamic\Products\Model\Brochure.one
+  restrictedproduct:
+    Title: 'Restricted Product'
+    CanViewType: 'OnlyTheseUsers'
+    ViewerGroups: =>SilverStripe\Security\Group.content_authors
+    Parent: =>Dynamic\Products\Page\ProductCategory.restricted
+  nonrestrictedproduct:
+    Title: 'Non Restricted Product'
+    Parent: =>Dynamic\Products\Page\ProductCategory.restricted
+    CanViewType: 'Inherit'
+
 
 Dynamic\Products\Page\ProductFileCollection:
   default:
