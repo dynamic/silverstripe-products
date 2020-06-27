@@ -17,6 +17,16 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 class Product extends \Page
 {
     /**
+     * @var
+     */
+    private $image;
+
+    /**
+     * @var
+     */
+    private $has_images;
+
+    /**
      * @var string
      */
     private static $table_name = 'Product';
@@ -126,16 +136,25 @@ class Product extends \Page
     }
 
     /**
+     * @return bool
+     */
+    public function setImage()
+    {
+        if ($this->getHasImages()) {
+            $this->image = $this->Images()->sort('SortOrder')->first();
+        }
+        return $this;
+    }
+
+    /**
      * @return mixed
      */
     public function getImage()
     {
-        if ($this->Images()->exists()) {
-            $image = $this->Images()->sort('SortOrder')->first();
-            return $image;
+        if (!$this->image) {
+            $this->setImage();
         }
-
-        return false;
+        return $this->image;
     }
 
     /**
@@ -150,5 +169,25 @@ class Product extends \Page
         }
 
         return false;
+    }
+
+    /**
+     * @return $this
+     */
+    public function setHasImages()
+    {
+        $this->has_images = $this->Images()->exists();
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHasImages()
+    {
+        if (!$this->has_images) {
+            $this->setHasImages();
+        }
+        return $this->has_images;
     }
 }
