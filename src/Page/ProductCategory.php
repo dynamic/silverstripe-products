@@ -2,6 +2,8 @@
 
 namespace Dynamic\Products\Page;
 
+use SilverStripe\CMS\Model\RedirectorPage;
+use SilverStripe\CMS\Model\VirtualPage;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Security\Security;
