@@ -2,8 +2,11 @@
 
 namespace Dynamic\Products\Page;
 
+use SilverStripe\CMS\Model\RedirectorPage;
+use SilverStripe\CMS\Model\VirtualPage;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\NumericField;
+use SilverStripe\Security\Security;
 
 class ProductCategory extends \Page
 {
@@ -66,6 +69,10 @@ class ProductCategory extends \Page
             ]);
 
         $this->extend('updateProductList', $products, $categories);
+
+        $products = $products->filterByCallback(function ($page) {
+            return $page->canView(Security::getCurrentUser());
+        });
 
         return $products;
     }
