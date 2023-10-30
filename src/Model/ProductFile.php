@@ -85,12 +85,12 @@ class ProductFile extends DataObject
         );
 
         $fields->insertBefore(
+            'Content',
             UploadField::create('Image')
                 ->setAllowedMaxFileNumber(1)
                 ->setFolderName('Uploads/ProductDocs/Images')
                 ->setAllowedFileCategories('image')
-                ->setDescription('Optional preview image of file'),
-            'Content'
+                ->setDescription('Optional preview image of file')
         );
 
         return $fields;
