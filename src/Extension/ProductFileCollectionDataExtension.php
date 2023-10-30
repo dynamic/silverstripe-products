@@ -28,15 +28,15 @@ class ProductFileCollectionDataExtension extends DataExtension
         $fields = $form->Fields();
 
         $fields->insertAfter(
+            'Title',
             DropdownField::create('CategoryID', 'Category', ProductCategory::get()->map())
-                ->setEmptyString('All categories'),
-            'Title'
+                ->setEmptyString('All categories')
         );
 
         $fields->insertAfter(
+            'CategoryID',
             DropdownField::create('Products__ID', 'Product', Product::get()->map())
-                ->setEmptyString('All products'),
-            'CategoryID'
+                ->setEmptyString('All products')
         );
 
         $fields->removeByName([
