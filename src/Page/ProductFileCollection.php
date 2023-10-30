@@ -8,6 +8,11 @@ use SilverStripe\Core\ClassInfo;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\FieldList;
 
+/**
+ * Class \Dynamic\Products\Page\ProductFileCollection
+ *
+ * @property string $ManagedClass
+ */
 class ProductFileCollection extends \Page
 {
     /**

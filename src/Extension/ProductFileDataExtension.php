@@ -15,6 +15,12 @@ use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\ORM\DataExtension;
 use Symbiote\GridFieldExtensions\GridFieldAddExistingSearchButton;
 
+/**
+ * Class \Dynamic\Products\Extension\ProductFileDataExtension
+ *
+ * @property Brochure|ProductFileDataExtension $owner
+ * @method ManyManyList|Product[] Products()
+ */
 class ProductFileDataExtension extends DataExtension
 {
     /**

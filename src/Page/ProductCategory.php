@@ -8,6 +8,11 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Security\Security;
 
+/**
+ * Class \Dynamic\Products\Page\ProductCategory
+ *
+ * @property int $ProductsPerPage
+ */
 class ProductCategory extends \Page
 {
     /**

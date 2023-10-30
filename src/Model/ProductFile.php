@@ -8,6 +8,17 @@ use SilverStripe\Assets\Image;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DataObject;
 
+/**
+ * Class \Dynamic\Products\Model\ProductFile
+ *
+ * @property string $Title
+ * @property string $Content
+ * @property string $FileLink
+ * @property int $ImageID
+ * @property int $DownloadID
+ * @method Image Image()
+ * @method File Download()
+ */
 class ProductFile extends DataObject
 {
     /**

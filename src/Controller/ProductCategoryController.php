@@ -5,6 +5,13 @@ namespace Dynamic\Products\Page;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\ORM\PaginatedList;
 
+/**
+ * Class \Dynamic\Products\Page\ProductCategoryController
+ *
+ * @property ProductCategory $dataRecord
+ * @method ProductCategory data()
+ * @mixin ProductCategory
+ */
 class ProductCategoryController extends \PageController
 {
     /**

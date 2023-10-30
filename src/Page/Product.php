@@ -14,6 +14,13 @@ use SilverStripe\Forms\TextField;
 use Symbiote\GridFieldExtensions\GridFieldAddExistingSearchButton;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
+/**
+ * Class \Dynamic\Products\Page\Product
+ *
+ * @property string $SKU
+ * @method ManyManyList|File[] Images()
+ * @method ManyManyList|Brochure[] Brochures()
+ */
 class Product extends \Page
 {
     /**
