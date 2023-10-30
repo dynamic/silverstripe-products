@@ -5,6 +5,10 @@ namespace Dynamic\Products\Admin;
 use Dynamic\Products\Model\Brochure;
 use SilverStripe\Admin\ModelAdmin;
 
+/**
+ * Class \Dynamic\Products\Admin\ProductFileAdmin
+ *
+ */
 class ProductFileAdmin extends ModelAdmin
 {
     /**

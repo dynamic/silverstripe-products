@@ -8,6 +8,11 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\ORM\DataExtension;
 
+/**
+ * Class \Dynamic\Products\Extension\ProductFileCollectionDataExtension
+ *
+ * @property ProductFileCollectionController|ProductFileCollectionDataExtension $owner
+ */
 class ProductFileCollectionDataExtension extends DataExtension
 {
     /**

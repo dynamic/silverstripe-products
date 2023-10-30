@@ -14,6 +14,12 @@ use SilverStripe\Versioned\GridFieldArchiveAction;
 use Symbiote\GridFieldExtensions\GridFieldAddExistingSearchButton;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
+/**
+ * Class \Dynamic\Products\Extension\RelatedProductsDataExtension
+ *
+ * @property RelatedProductsDataExtension $owner
+ * @method ManyManyList|Product[] RelatedProducts()
+ */
 class RelatedProductsDataExtension extends DataExtension
 {
     /**
