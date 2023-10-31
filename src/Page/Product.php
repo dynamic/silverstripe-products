@@ -2,91 +2,40 @@
 
 namespace Dynamic\Products\Page;
 
-use Bummzack\SortableFile\Forms\SortableUploadField;
-use Dynamic\Products\Model\Brochure;
-use SilverStripe\Assets\File;
-use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\GridField\GridField;
-use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
-use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
-use SilverStripe\Forms\TextField;
-use Symbiote\GridFieldExtensions\GridFieldAddExistingSearchButton;
-use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+use Dynamic\Products\Model\ProductObject;
+use SilverShop\HasOneField\HasOneButtonField;
 
 /**
  * Class \Dynamic\Products\Page\Product
  *
- * @property string $SKU
- * @method ManyManyList|File[] Images()
- * @method ManyManyList|Brochure[] Brochures()
+ * @property int $ProductID
+ * @method ProductObject Product()
+ * @mixin ProductDataExtension
  */
 class Product extends \Page
 {
-    /**
-     * @var
-     */
-    private $image;
-
-    /**
-     * @var
-     */
-    private $has_images;
-
     /**
      * @var string
      */
     private static $table_name = 'Product';
 
     /**
-     * @var array
+     * @var string
      */
-    private static $db = [
-        'SKU' => 'Varchar(100)',
-    ];
+    private static $singular_name = 'Product Page';
 
     /**
-     * @var array
+     * @var string
      */
-    private static $many_many = [
-        'Images' => File::class,
-        'Brochures' => Brochure::class,
-    ];
-
-    /**
-     * @var array
-     */
-    private static $many_many_extraFields = [
-        'Images' => [
-            'SortOrder' => 'Int',
-        ],
-        'Brochures' => [
-            'SortOrder' => 'Int',
-        ],
-    ];
+    private static $plural_name = 'Product Pages';
 
     /**
      *
-     */
-    private static $owns = [
-        'Images',
-    ];
-
-    /**
-     * The relation name was established before requests for videos.
-     * The relation has subsequently been updated from Image::class to File::class
-     * to allow for additional file types such as mp4
-     *
      * @var array
      */
-    private static $allowed_images_extensions = [
-        'gif',
-        'jpeg',
-        'jpg',
-        'png',
-        'bmp',
-        'ico',
-        'mp4',
+    private static $has_one = [
+        'Product' => ProductObject::class,
     ];
 
     /**
@@ -100,101 +49,43 @@ class Product extends \Page
     public function getCMSFields()
     {
         $this->beforeUpdateCMSFields(function (FieldList $fields) {
-            $fields->insertBefore(
-                'Content',
-                TextField::create('SKU', 'Product SKU')
+            $fields->addFieldToTab(
+                'Root.Main',
+                HasOneButtonField::create(
+                    $this->owner,
+                    'Product',
+                    ''
+                )
             );
-
-            // Images tab
-            $images = SortableUploadField::create('Images')
-                ->setSortColumn('SortOrder')
-                ->setIsMultiUpload(true)
-                ->setAllowedExtensions($this->config()->get('allowed_images_extensions'))
-                ->setFolderName('Uploads/Products/Images');
-
-            $fields->addFieldsToTab('Root.Images', [
-                $images,
-            ]);
-
-            if ($this->ID) {
-                // Brochures
-                $config = GridFieldConfig_RecordEditor::create();
-                $config->addComponents([
-                    new GridFieldOrderableRows('SortOrder'),
-                    new GridFieldAddExistingSearchButton(),
-                ])
-                    ->removeComponentsByType([
-                        GridFieldAddExistingAutocompleter::class,
-                    ]);
-
-                $brochures = GridField::create(
-                    'Brochures',
-                    'Brochures',
-                    $this->Brochures()->sort('SortOrder'),
-                    $config
-                );
-                $fields->addFieldsToTab('Root.Files.Brochures', [
-                    $brochures,
-                ]);
-            }
         });
 
         return parent::getCMSFields();
     }
 
     /**
-     * @return bool
+     * @return bool|ProductCategory
      */
-    public function setImage()
+    public function getCategory()
     {
-        if ($this->getHasImages()) {
-            $this->image = $this->Images()->sort('SortOrder')->first();
+        if (!$this->owner->ParentID) {
+            return false;
         }
-        return $this;
+        /** @var ProductCategory $parent */
+        $parent = $this->owner->Parent();
+        if (!$parent instanceof ProductCategory) {
+            return false;
+        }
+
+        return $parent;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getImage()
+    public function getCategoryTitle()
     {
-        if (!$this->image) {
-            $this->setImage();
+        if ($this->getCategory()) {
+            return $this->getCategory()->Title;
         }
-        return $this->image;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getThumbnail()
-    {
-        if ($image = $this->getImage()) {
-            if ($thumb = Image::get()->byID($image->ID)) {
-                return $thumb->CMSThumbnail();
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * @return $this
-     */
-    public function setHasImages()
-    {
-        $this->has_images = $this->Images()->exists();
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getHasImages()
-    {
-        if (!$this->has_images) {
-            $this->setHasImages();
-        }
-        return $this->has_images;
     }
 }

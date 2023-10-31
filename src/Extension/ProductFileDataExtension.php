@@ -3,9 +3,9 @@
 namespace Dynamic\Products\Extension;
 
 use Dynamic\Products\Model\ProductFile;
+use Dynamic\Products\Model\ProductObject;
 use Dynamic\Products\Page\Product;
 use SilverStripe\Core\ClassInfo;
-use SilverStripe\Dev\Debug;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridField;
@@ -19,7 +19,7 @@ use Symbiote\GridFieldExtensions\GridFieldAddExistingSearchButton;
  * Class \Dynamic\Products\Extension\ProductFileDataExtension
  *
  * @property Brochure|ProductFileDataExtension $owner
- * @method ManyManyList|Product[] Products()
+ * @method ManyManyList|ProductObject[] Products()
  */
 class ProductFileDataExtension extends DataExtension
 {
@@ -27,7 +27,7 @@ class ProductFileDataExtension extends DataExtension
      * @var array
      */
     private static $belongs_many_many = array(
-        'Products' => Product::class,
+        'Products' => ProductObject::class,
     );
 
     /**

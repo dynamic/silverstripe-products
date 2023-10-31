@@ -7,7 +7,7 @@ use Dynamic\Products\Extension\ProductFileDataExtension;
 /**
  * Class \Dynamic\Products\Model\Brochure
  *
- * @method ManyManyList|Product[] Products()
+ * @method ManyManyList|ProductObject[] Products()
  * @mixin ProductFileDataExtension
  */
 class Brochure extends ProductFile
