@@ -40,7 +40,6 @@ Dynamic\Products\Page\ProductCategory:
 Dynamic\Products\Page\Product:
   one:
     Title: 'Product One'
-    Brochures: =>Dynamic\Products\Model\Brochure.one
   restrictedproduct:
     Title: 'Restricted Product'
     CanViewType: 'OnlyTheseUsers'
@@ -51,6 +50,11 @@ Dynamic\Products\Page\Product:
     Parent: =>Dynamic\Products\Page\ProductCategory.restricted
     CanViewType: 'Inherit'
 
+Dynamic\Products\Model\ProductObject:
+  one:
+    Title: 'Product Object One'
+    Product: =>Dynamic\Products\Page\Product.one
+    Brochures: =>Dynamic\Products\Model\Brochure.one
 
 Dynamic\Products\Page\ProductFileCollection:
   default:

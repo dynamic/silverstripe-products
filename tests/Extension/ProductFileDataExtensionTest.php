@@ -29,7 +29,7 @@ class ProductFileDataExtensionTest extends SapphireTest
     public function testGetProductsList()
     {
         $object = $this->objFromFixture(Brochure::class, 'one');
-        $this->assertEquals($object->getProductsList(), 'Product One');
+        $this->assertEquals($object->getProductsList(), 'Product Object One');
     }
 
     /**
