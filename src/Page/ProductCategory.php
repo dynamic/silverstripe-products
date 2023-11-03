@@ -66,11 +66,10 @@ class ProductCategory extends \Page
      */
     public function getProductList()
     {
-        $categories = ProductCategory::get()->filter('ParentID', $this->data()->ID)->column('ID');
-        $categories[] = $this->data()->ID;
         $products = Product::get()
-            ->filterAny([
-                'ParentID' => $categories,
+            ->filter([
+                'ParentID' => $this->data()->ID,
+                'Product.ID:GreaterThan' => 0,
             ]);
 
         $this->extend('updateProductList', $products, $categories);

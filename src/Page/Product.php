@@ -11,7 +11,6 @@ use SilverShop\HasOneField\HasOneButtonField;
  *
  * @property int $ProductID
  * @method ProductObject Product()
- * @mixin ProductDataExtension
  */
 class Product extends \Page
 {
