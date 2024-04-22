@@ -54,7 +54,7 @@ class ProductFileCollectionDataExtension extends DataExtension
 
         if (isset($searchCriteria['CategoryID']) && $searchCriteria['CategoryID'] != '') {
             $category = ProductCategory::get()->byID($searchCriteria['CategoryID']);
-            $products = $category->Products();
+            $products = $category->getProductList();
             $docs = new ArrayList();
 
             foreach ($products as $product) {
