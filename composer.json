@@ -16,7 +16,7 @@
         "silverstripe/recipe-cms": "^5.0",
         "dynamic/silverstripe-collection": "^3.0",
         "symbiote/silverstripe-gridfieldextensions": "^4.0",
-        "bummzack/sortablefile": "^3.0"
+        "bummzack/sortablefile": "^2.0"
     },
     "require-dev": {
         "silverstripe/recipe-testing": "^3"
